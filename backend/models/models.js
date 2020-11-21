@@ -1,5 +1,5 @@
-const { strict } = require("assert");
-const { Module } = require("module");
+// const { strict } = require("assert");
+// const { Module } = require("module");
 const mongoose = require("mongoose");
 
 const productSchema = mongoose.Schema({

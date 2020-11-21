@@ -7,7 +7,6 @@ module.exports = app => {
         useFindAndModify:false
     }).then(res => console.log("we have been connected to mongo on port 27017"))
     .catch((er) =>{
-
         console.log(er);
     })
 
