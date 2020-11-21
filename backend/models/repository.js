@@ -1,10 +1,10 @@
 const models = require("./models");
 
 exports.allProducts = async () => {
-    const products = await models.find().then(() => {
-        res.status(200);
+    const products = await models.find();
+        // res.status(200);
         return products;
-    })
+}
 
 exports.productById = async (id) => {
     const product = await models.findOne(id);
@@ -19,5 +19,4 @@ exports.saveProduct = async (payload) => {
 exports.removeProduct = async id => {
     const product = await models.findByIdAndRemove(id);
     return product;
-}
 }

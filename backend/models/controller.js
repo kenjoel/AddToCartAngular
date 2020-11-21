@@ -29,7 +29,7 @@ exports.getAllItems = async (req, res) => {
         const theItems = await repositoryData.allProducts();
         res.status(200).json({
             status: true,
-            data: products,
+            data: theItems,
         })
     }catch (err) {
         console.log(err)
