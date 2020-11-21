@@ -10,6 +10,7 @@ require("../db/mongoose")(app);
 app.use(morgan("dev"));
 app.use(cors());
 app.use(bodyParser.json);
+app.use("./files", express.static("files"));
 
 
 app.get("/", (req, res) => {
