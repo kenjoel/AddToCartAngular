@@ -39,3 +39,38 @@ exports.getAllItems = async (req, res) => {
         })
     }
 }
+
+exports.getItemById = async (req, res) => {
+    try{
+        let id = req.params.id;
+        let productDetails = await repositoryData.productById(id);
+        res.status(200).json({
+            status: true,
+            data: productDetails,
+        })
+    } catch (err) {
+        res.status(500).json({
+            status: false,
+            error: err
+        })
+    }
+}
+
+
+exports.removeItemById = async (req, res) => {
+    try{
+        let id = req.params.id;
+        let productDetails = await repositoryData.removeProduct(id);
+        res.status(200).json({
+            status: true,
+            data: productDetails,
+        })
+    } catch (err) {
+        res.status(500).json({
+            status: false,
+            error: err
+        })
+    }
+}
+
+
