@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const app = express();
 // const mongoose = require("../db/mongoose");
 require("../db/mongoose")(app);
+require('./routerHandler')(app);
 
 app.use(morgan("dev"));
 app.use(cors());
