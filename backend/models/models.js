@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const productSchema = mongoose.Schema({
     name:{
         type:String,
-        required: [true,"Please include the product name"]
+        required: [true,"Please include the product name"]  
     },
 
     price:{

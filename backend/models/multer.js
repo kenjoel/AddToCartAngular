@@ -9,14 +9,15 @@ const storage = multer.diskStorage({
         cb(null, path.join("./files/"));
     },
 
-    __filename: (req, res, cd) => {
+    __filename: (req, res, cb) => {
         cb(null,new Date().toISOString() + file.originalname);
     }
 });
 
 //check the fileType
-const fileFilter = (req, res, cb) => {
-    if(file.mimetype.startswith("image")){
+const fileFilter = (req, file, cb) => {
+    // var file = req.file.map(file => file.path);
+    if(file.mimetype.startsWith("image")){
         cb(null, true)
     }else{
         cb(new Error("'Not an image! Please upload an image.', 400", false));
