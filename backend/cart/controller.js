@@ -6,13 +6,14 @@ const ProductsActivity = require("../models/repository");
 // }
 
 exports.addItemToCart = async (req, res) => {
-    const {
-        productId
-    } = req.body;
+    const {productId} = req.body;
     const quantity = Number.parseInt(req.body.quantity);
     try {
         let cart = await ItemsActivity.cart();
         let productDetails = await ProductsActivity.productById(productId);
+        console.log(productId);
+        console.log(quantity);
+        
              if (!productDetails) {
             return res.status(500).json({
                 type: "Not Found",
