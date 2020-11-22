@@ -5,13 +5,14 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+
 
 // const mongoose = require("../db/mongoose");
 require("../db/mongoose")(app);
 require('./routerHandler')(app);
 app.use(morgan("dev"));
-app.use(cors());
 
 
 app.use("/files", express.static("files"));
