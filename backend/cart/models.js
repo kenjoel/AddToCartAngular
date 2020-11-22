@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 let ItemSchema = new Schema({
     productId:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"product"
+        ref:"Product"
     },
     quantity:{
-        type:mongoose.Types.ObjectId,
+        type:Number,
         required:true,
         min:[1,"Quantity cannot be less than 1."]
     },
@@ -23,7 +23,7 @@ let ItemSchema = new Schema({
 {timestamps:true
 });
 
-const cartSchema = new Schema({
+const CartSchema = new Schema({
     items:[ItemSchema],
     subTotal:{
         default:0,
@@ -33,4 +33,4 @@ const cartSchema = new Schema({
 {timestamps:true}
 );
 
-module.exports = mongoose.model("cart", cartSchema);
+module.exports = mongoose.model("cart", CartSchema);

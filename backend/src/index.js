@@ -5,13 +5,15 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const app = express();
 // const mongoose = require("../db/mongoose");
-require("../db/mongoose")(app);
-require('./routerHandler')(app);
 
 app.use(morgan("dev"));
 app.use(cors());
 app.use(bodyParser.json);
+app.use(bodyParser.urlencoded({ extended: false })); // support encoded bodies
 app.use("/files", express.static("files"));
+
+require("../db/mongoose")(app);
+require('./routerHandler')(app);
 
 
 app.get("/", (req, res) => {
