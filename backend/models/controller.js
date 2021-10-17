@@ -40,6 +40,17 @@ exports.getAllItems = async (req, res) => {
     }
 }
 
+
+exports.download = (req, res, next) => {
+    console.log('fileController.download: started')
+    const path = req.body.path
+    const file = fs.createReadStream(path)
+    const filename = (new Date()).toISOString()
+    res.setHeader('Content-Disposition', 'attachment: filename="' + filename + '"')
+    file.pipe(res)
+  }
+  
+
 exports.getItemById = async (req, res) => {
     try{
         let id = req.params.id;
@@ -72,5 +83,22 @@ exports.removeItemById = async (req, res) => {
         })
     }
 }
+
+
+exports.remove_all_items = async (req, res) => {
+    try{
+        let Details = await repositoryData.removeAllProducts();
+        res.status(200).json({
+            status: true,
+            data: Details,
+        })
+    } catch (err) {
+        res.status(500).json({
+            status: false,
+            error: err
+        })
+    }
+}
+
 
 

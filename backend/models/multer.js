@@ -1,12 +1,14 @@
 const multer = require("multer");
 const path = require("path");
+const fs = require('fs')
+
 
 
 //Prepare to Upload Image
 
 const storage = multer.diskStorage({
     destination:(req, res, cb) => {
-        cb(null, path.join("./files/"));
+        cb(null, path.join("../files/"));
     },
 
     __filename: (req, res, cb) => {
@@ -23,6 +25,7 @@ const fileFilter = (req, file, cb) => {
         cb(new Error("'Not an image! Please upload an image.', 400", false));
     }
 }
+
 
 exports.upload = multer({
     storage:storage,

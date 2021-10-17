@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 module.exports = app => {
-    mongoose.connect("mongodb+srv://Kenjoel:KenJoelMuigai98@cluster0.msins.mongodb.net/cart?retryWrites=true&w=majority", {
+    mongoose.connect("mongodb+srv://Kenjoel:Ivylove1@cluster0.9mzmf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
         useUnifiedTopology:true,
         useNewUrlParser:true,
         useFindAndModify:false

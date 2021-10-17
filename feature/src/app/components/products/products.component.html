@@ -6,7 +6,7 @@
             <div class="row shop-listing">
               <div class="col-lg-4" *ngFor="let product of products">
                 <div class="card shop-hover border-0">
-                  <img [src]="'http://localhost:5000/' + product.image" alt="wrapkit" class="img-fluid" />
+                  <img [src]="'http://localhost:4000/product/' + product.image" alt="wrapkit" class="img-fluid" />
                   <div class="card-img-overlay align-items-center">
                     <button class="btn btn-md btn-info" (click)="_addItemToCart(product._id, 1)">Add to Cart</button>
                   </div>

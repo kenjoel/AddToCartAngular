@@ -20,3 +20,9 @@ exports.removeProduct = async id => {
     const product = await productSchema.findByIdAndRemove(id);
     return product;
 }
+
+exports.removeAllProducts = async () => {
+    const eradicate = await productSchema.deleteMany({})
+    return eradicate
+
+}
